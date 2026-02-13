@@ -1,6 +1,6 @@
 import { getFormatById, getShowById, getStageById, evaluateCPI } from '../data/experiments';
 
-export function TeamView({ experiments, teamMembers, onEdit }) {
+export function TeamView({ experiments, teamMembers, currentUser, onEdit }) {
   return (
     <div className="bg-white rounded-lg shadow overflow-hidden">
       <table className="min-w-full divide-y divide-gray-200">
@@ -11,6 +11,7 @@ export function TeamView({ experiments, teamMembers, onEdit }) {
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stage</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CPI</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
@@ -23,9 +24,10 @@ export function TeamView({ experiments, teamMembers, onEdit }) {
               const show = getShowById(exp.showId);
               const stage = getStageById(exp.stage);
               const cpiEval = exp.cpiValue ? evaluateCPI(exp.formatId, exp.cpiValue) : null;
+              const canEdit = currentUser && exp.assignedTo === currentUser;
               
               return (
-                <tr key={exp.id} className="hover:bg-gray-50 cursor-pointer" onClick={() => onEdit(exp)}>
+                <tr key={exp.id} className={`${canEdit ? 'hover:bg-gray-50 cursor-pointer' : 'bg-gray-50'} ${canEdit ? '' : 'opacity-75'}`} onClick={() => canEdit && onEdit(exp)}>
                   {idx === 0 && (
                     <td className="px-6 py-4 whitespace-nowrap" rowSpan={memberExperiments.length}>
                       <div className="flex items-center">
@@ -63,6 +65,13 @@ export function TeamView({ experiments, teamMembers, onEdit }) {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {exp.cpiTestingDate || '—'}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {canEdit ? (
+                      <span className="text-green-600 text-sm font-medium">✎ Can edit</span>
+                    ) : (
+                      <span className="text-gray-400 text-sm">🔒 Read only</span>
+                    )}
                   </td>
                 </tr>
               );

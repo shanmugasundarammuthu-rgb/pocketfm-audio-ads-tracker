@@ -1,21 +1,35 @@
 import { getFormatById, getShowById, getTeamMemberById, getStageById, evaluateCPI } from '../data/experiments';
 
-export function ExperimentCard({ experiment, onEdit }) {
+export function ExperimentCard({ experiment, currentUser, onEdit }) {
   const format = getFormatById(experiment.formatId);
   const show = getShowById(experiment.showId);
   const assignee = getTeamMemberById(experiment.assignedTo);
   const stage = getStageById(experiment.stage);
   const cpiEvaluation = experiment.cpiValue ? evaluateCPI(experiment.formatId, experiment.cpiValue) : null;
   
+  const canEdit = currentUser && experiment.assignedTo === currentUser;
+  const isAssignedToCurrentUser = experiment.assignedTo === currentUser;
+  
   return (
     <div 
-      className={`bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow cursor-pointer ${stage.borderColor}`}
+      className={`bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow ${canEdit ? 'cursor-pointer' : 'cursor-not-allowed opacity-90'} ${stage.borderColor}`}
       onClick={() => onEdit?.(experiment)}
     >
-      {/* Header: Theme + Audio Format x Show */}
+      {/* Header: Theme + Audio Format x Show + Edit Permission */}
       <div className="mb-3">
-        <div className="inline-block px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded mb-2">
-          {format.theme}
+        <div className="flex items-center justify-between mb-2">
+          <div className="inline-block px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded">
+            {format.theme}
+          </div>
+          {canEdit ? (
+            <span className="text-xs text-green-600 font-medium flex items-center">
+              ✎ Editable
+            </span>
+          ) : (
+            <span className="text-xs text-gray-400 flex items-center" title={`Assigned to ${assignee?.name || 'unknown'}`}>
+              🔒 {assignee?.avatar || '?'}
+            </span>
+          )}
         </div>
         <h4 className="font-semibold text-gray-900">{format.name}</h4>
         <p className="text-sm text-gray-600 mt-1">× {show.name}</p>

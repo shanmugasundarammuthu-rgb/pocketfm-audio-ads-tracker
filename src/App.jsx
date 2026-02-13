@@ -13,6 +13,9 @@ import { EditModal } from './components/EditModal';
 import { TeamView } from './components/TeamView';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(() => {
+    return localStorage.getItem('dashboard_currentUser') || '';
+  });
   const [experiments, setExperiments] = useState(initialExperiments);
   const [filters, setFilters] = useState({
     search: '',
@@ -82,6 +85,22 @@ function App() {
     setFilters(prev => ({ ...prev, [key]: value }));
   };
   
+  const handleEdit = (experiment) => {
+    // Check if user is assigned to this experiment
+    if (!currentUser) {
+      alert('Please select who you are first.');
+      return;
+    }
+    
+    if (experiment.assignedTo !== currentUser) {
+      const assignedPerson = teamMembers.find(p => p.id === experiment.assignedTo);
+      alert(`You can only edit experiments assigned to you. This is assigned to ${assignedPerson?.name || 'someone else'}.`);
+      return;
+    }
+    
+    setEditingExperiment(experiment);
+  };
+  
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
@@ -92,12 +111,31 @@ function App() {
               <h1 className="text-2xl font-bold">Audio Ad Experiments</h1>
               <p className="text-purple-200">Pocket FM UK • Meta CPI Testing & Scaling</p>
             </div>
-            <button
-              onClick={() => setEditingExperiment({})}
-              className="px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-purple-50 transition-colors"
-            >
-              + New Experiment
-            </button>
+            <div className="flex items-center gap-4">
+              {/* User Selector */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-purple-200">You are:</span>
+                <select
+                  value={currentUser}
+                  onChange={(e) => {
+                    setCurrentUser(e.target.value);
+                    localStorage.setItem('dashboard_currentUser', e.target.value);
+                  }}
+                  className="px-3 py-2 rounded-lg text-gray-900 text-sm focus:ring-2 focus:ring-white"
+                >
+                  <option value="">Select user...</option>
+                  {teamMembers.map(person => (
+                    <option key={person.id} value={person.id}>{person.name}</option>
+                  ))}
+                </select>
+              </div>
+              <button
+                onClick={() => setEditingExperiment({})}
+                className="px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-purple-50 transition-colors"
+              >
+                + New Experiment
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -162,7 +200,8 @@ function App() {
                 key={stage.id}
                 stage={stage}
                 experiments={experiments}
-                onEdit={setEditingExperiment}
+                currentUser={currentUser}
+                onEdit={handleEdit}
               />
             ))}
           </div>
@@ -170,7 +209,8 @@ function App() {
           <TeamView 
             experiments={filteredExperiments}
             teamMembers={teamMembers}
-            onEdit={setEditingExperiment}
+            currentUser={currentUser}
+            onEdit={handleEdit}
           />
         )}
       </main>

@@ -1,6 +1,6 @@
 import { ExperimentCard } from './ExperimentCard';
 
-export function StageColumn({ stage, experiments, onEdit }) {
+export function StageColumn({ stage, experiments, currentUser, onEdit }) {
   return (
     <div className="min-w-[320px] w-80 flex flex-col">
       {/* Column Header */}
@@ -20,6 +20,7 @@ export function StageColumn({ stage, experiments, onEdit }) {
             <ExperimentCard 
               key={experiment.id} 
               experiment={experiment}
+              currentUser={currentUser}
               onEdit={onEdit}
             />
           ))}
