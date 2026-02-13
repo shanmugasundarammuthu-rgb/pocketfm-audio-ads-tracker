@@ -73,6 +73,7 @@ export const initialExperiments = [
     assignedTo: 'person-1',
     cpiTestingDate: '2025-02-15',
     cpiValue: null,
+    creativeLink: '',
     notes: 'First test for Classic ASMR on Mystery Manor',
     createdAt: '2025-02-10'
   },
@@ -84,6 +85,7 @@ export const initialExperiments = [
     assignedTo: 'person-2',
     cpiTestingDate: '2025-02-14',
     cpiValue: 1.85,
+    creativeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     notes: 'Lofi Thriller performing well on Mystery Manor',
     createdAt: '2025-02-08'
   },
@@ -97,6 +99,7 @@ export const initialExperiments = [
     scalingDate: '2025-02-16',
     cpiValue: 1.85,
     scalingCpiValue: null,
+    creativeLink: '',
     notes: 'Approved for scaling',
     createdAt: '2025-02-08'
   },
@@ -108,6 +111,7 @@ export const initialExperiments = [
     assignedTo: 'person-3',
     cpiTestingDate: '2025-02-18',
     cpiValue: null,
+    creativeLink: 'https://drive.google.com/file/d/example/view',
     notes: 'Testing Brand: Fantasy for Sci-Fi audience',
     createdAt: '2025-02-12'
   },
@@ -119,6 +123,7 @@ export const initialExperiments = [
     assignedTo: 'person-1',
     cpiTestingDate: '2025-02-10',
     cpiValue: 3.20,
+    creativeLink: '',
     notes: 'CPI too high for True Crime audience',
     createdAt: '2025-02-05'
   },
@@ -132,6 +137,7 @@ export const initialExperiments = [
     scalingDate: '2025-02-12',
     cpiValue: 1.45,
     scalingCpiValue: 1.52,
+    creativeLink: 'https://www.youtube.com/watch?v=example',
     notes: 'Short Promos excellent performance, fully scaled',
     createdAt: '2025-02-03'
   },
@@ -143,6 +149,7 @@ export const initialExperiments = [
     assignedTo: 'person-5',
     cpiTestingDate: null,
     cpiValue: null,
+    creativeLink: '',
     notes: 'Waiting for UGC: Experience creative assets',
     createdAt: '2025-02-13'
   },
@@ -154,6 +161,7 @@ export const initialExperiments = [
     assignedTo: 'person-3',
     cpiTestingDate: '2025-02-16',
     cpiValue: null,
+    creativeLink: '',
     notes: 'Testing Social UGC for comedy audience',
     createdAt: '2025-02-11'
   }
