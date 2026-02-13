@@ -29,10 +29,10 @@ export function EditModal({ experiment, onSave, onClose }) {
   
   const handleAutoStage = () => {
     if (formData.cpiValue && formData.stage === 'cpi-testing') {
-      const eval = evaluateCPI(formData.formatId, parseFloat(formData.cpiValue));
-      if (eval === 'pass') {
+      const result = evaluateCPI(formData.formatId, parseFloat(formData.cpiValue));
+      if (result === 'pass') {
         setFormData({ ...formData, stage: 'scaling-testing' });
-      } else if (eval === 'fail') {
+      } else if (result === 'fail') {
         setFormData({ ...formData, stage: 'failed' });
       }
     }
