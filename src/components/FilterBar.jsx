@@ -15,7 +15,7 @@ export function FilterBar({ filters, onFilterChange, formats, shows, teamMembers
         </div>
         
         {/* Format Filter */}
-        <div className="min-w-[150px]">
+        <div className="min-w-[200px]">
           <label className="block text-sm font-medium text-gray-700 mb-1">Audio Format</label>
           <select
             value={filters.format}
@@ -24,7 +24,7 @@ export function FilterBar({ filters, onFilterChange, formats, shows, teamMembers
           >
             <option value="all">All Formats</option>
             {formats.map(format => (
-              <option key={format.id} value={format.id}>{format.name}</option>
+              <option key={format.id} value={format.id}>{format.theme}</option>
             ))}
           </select>
         </div>

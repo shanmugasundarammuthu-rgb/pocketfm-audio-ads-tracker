@@ -57,10 +57,11 @@ export function EditModal({ experiment, onSave, onClose }) {
               >
                 {audioFormats.map(f => (
                   <option key={f.id} value={f.id}>
-                    {f.name} (Threshold: ${f.cpiThreshold})
+                    {f.theme} — {f.name}
                   </option>
                 ))}
               </select>
+              <p className="mt-1 text-xs text-gray-500">CPI Threshold: ${format.cpiThreshold}</p>
             </div>
             
             {/* Show */}

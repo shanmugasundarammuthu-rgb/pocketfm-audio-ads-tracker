@@ -1,40 +1,39 @@
 // Audio Ad Formats with CPI thresholds
 export const audioFormats = [
-  {
-    id: 'format-1',
-    name: 'Host Read Ad',
-    description: 'Host personally reads the advertisement',
-    cpiThreshold: 2.50, // Max acceptable CPI for this format
-    typicalDuration: '30-60s'
-  },
-  {
-    id: 'format-2',
-    name: 'Sponsored Segment',
-    description: 'Longer integrated brand segment',
-    cpiThreshold: 3.00,
-    typicalDuration: '2-3min'
-  },
-  {
-    id: 'format-3',
-    name: 'Pre-Roll Ad',
-    description: 'Ad plays before episode starts',
-    cpiThreshold: 2.00,
-    typicalDuration: '15-30s'
-  },
-  {
-    id: 'format-4',
-    name: 'Mid-Roll Ad',
-    description: 'Ad inserted mid-episode',
-    cpiThreshold: 2.25,
-    typicalDuration: '30-45s'
-  },
-  {
-    id: 'format-5',
-    name: 'Dynamic Insertion',
-    description: 'Contextually targeted ad insertion',
-    cpiThreshold: 1.80,
-    typicalDuration: '30s'
-  }
+  { id: 'format-1', theme: 'Classic ASMR', name: 'Standard ASMR visual + Audio story', cpiThreshold: 2.50 },
+  { id: 'format-2', theme: 'Use Case: Transport', name: 'Commute visuals (driving/riding) + Audio + Subs', cpiThreshold: 2.50 },
+  { id: 'format-3', theme: 'Use Case: Fitness', name: 'Gym/Workout visuals + Audio + Subs', cpiThreshold: 2.50 },
+  { id: 'format-4', theme: 'Use Case: Chores', name: 'Household chores (cleaning/cooking) + Audio + Subs', cpiThreshold: 2.50 },
+  { id: 'format-5', theme: 'Brand Split-Screen', name: 'Brand (top) / Title (bottom) / Subs (center)', cpiThreshold: 2.50 },
+  { id: 'format-6', theme: 'Video-to-Audio', name: 'Short video hook → Transitions to Subs/Audio only', cpiThreshold: 2.50 },
+  { id: 'format-7', theme: 'Brand: Fantasy', name: 'Brand-centric visual tailored for Fantasy genre', cpiThreshold: 2.50 },
+  { id: 'format-8', theme: 'Genre Tagline', name: 'Focus on Genre tagline + Audio', cpiThreshold: 2.50 },
+  { id: 'format-9', theme: 'UGC: Experience', name: 'Person listening/reacting → Transitions to Audio', cpiThreshold: 2.50 },
+  { id: 'format-10', theme: 'UGC: Review', name: 'Person explaining story details + Subs', cpiThreshold: 2.50 },
+  { id: 'format-11', theme: 'Writing Animation', name: 'Animated handwriting on page + Page flip', cpiThreshold: 2.50 },
+  { id: 'format-12', theme: 'Burning Edges', name: 'Visual of book pages burning at the edges', cpiThreshold: 2.50 },
+  { id: 'format-13', theme: 'Blood Drops', name: 'Visual of blood drops hitting book pages', cpiThreshold: 2.50 },
+  { id: 'format-14', theme: 'Magic Erase', name: 'Words being erased (Harry Potter style)', cpiThreshold: 2.50 },
+  { id: 'format-15', theme: 'Comic Motion', name: 'Comic-book style motion stills + Subs', cpiThreshold: 2.50 },
+  { id: 'format-16', theme: 'Lofi Thriller', name: 'Car backseat POV, rain, radio playing thriller audio', cpiThreshold: 2.50 },
+  { id: 'format-17', theme: 'Baby Podcaster', name: 'AI baby narrator for Dark/Crime stories + LA visuals', cpiThreshold: 2.50 },
+  { id: 'format-18', theme: 'Story Writer', name: 'Character writing in relaxed setup + Ambient SFX', cpiThreshold: 2.50 },
+  { id: 'format-19', theme: 'RPG World', name: 'Main character walking through story world (Game style)', cpiThreshold: 2.50 },
+  { id: 'format-20', theme: 'Pop-up Book', name: 'Characters "pop up" from book during narration', cpiThreshold: 2.50 },
+  { id: 'format-21', theme: 'Trading Cards', name: 'Kids debating character stats via trading cards', cpiThreshold: 2.50 },
+  { id: 'format-22', theme: 'Gwent Style', name: 'Card-game based interface for story battles', cpiThreshold: 2.50 },
+  { id: 'format-23', theme: 'Short Promos', name: '30s–2.5m cliffhanger clips with enhanced SFX', cpiThreshold: 2.50 },
+  { id: 'format-24', theme: '2D Lofi/App UI', name: '2D animation (bored in transit) → Cut to App UI', cpiThreshold: 2.50 },
+  { id: 'format-25', theme: 'Social UGC', name: 'People chatting in social settings about show twists', cpiThreshold: 2.50 },
+  { id: 'format-26', theme: 'Reel Style', name: 'High-energy: Alternating colors, oversized text, emojis', cpiThreshold: 2.50 },
+  { id: 'format-27', theme: 'Theatre Reverb', name: 'Audio with auditorium reverb + intermittent visuals', cpiThreshold: 2.50 },
+  { id: 'format-28', theme: 'Memory Book', name: 'Vintage photos in flipping book + Nostalgic audio', cpiThreshold: 2.50 },
+  { id: 'format-29', theme: 'Dream/Float', name: 'Visual of listener floating as environments shift', cpiThreshold: 2.50 },
+  { id: 'format-30', theme: 'Mixed ASMR', name: 'Multi-story ASMR compilation', cpiThreshold: 2.50 },
+  { id: 'format-31', theme: 'Bingeability', name: 'Focus on "travel/less screentime" utility + Story', cpiThreshold: 2.50 },
+  { id: 'format-32', theme: 'Hobby ASMR', name: 'Miniature painting/crafting visuals + Story snippets', cpiThreshold: 2.50 },
+  { id: 'format-33', theme: 'Nature ASMR', name: 'Underwater/Nature movement visuals + Character VO', cpiThreshold: 2.50 },
+  { id: 'format-34', theme: 'Animal ASMR', name: 'Pet grooming visuals; AI focus on "lost in the story"', cpiThreshold: 2.50 }
 ];
 
 // Shows being tested
@@ -64,7 +63,7 @@ export const stages = [
   { id: 'failed', name: 'Failed', color: 'bg-red-100 text-red-800', borderColor: 'stage-failed' }
 ];
 
-// Initial experiments data
+// Initial experiments data - updated with new format IDs
 export const initialExperiments = [
   {
     id: 'exp-1',
@@ -74,24 +73,24 @@ export const initialExperiments = [
     assignedTo: 'person-1',
     cpiTestingDate: '2025-02-15',
     cpiValue: null,
-    notes: 'First test for Host Read on Mystery Manor',
+    notes: 'First test for Classic ASMR on Mystery Manor',
     createdAt: '2025-02-10'
   },
   {
     id: 'exp-2',
-    formatId: 'format-3',
-    showId: 'show-2',
+    formatId: 'format-16',
+    showId: 'show-1',
     stage: 'cpi-testing',
     assignedTo: 'person-2',
     cpiTestingDate: '2025-02-14',
     cpiValue: 1.85,
-    notes: 'Pre-roll performing well',
+    notes: 'Lofi Thriller performing well on Mystery Manor',
     createdAt: '2025-02-08'
   },
   {
     id: 'exp-3',
-    formatId: 'format-3',
-    showId: 'show-2',
+    formatId: 'format-16',
+    showId: 'show-1',
     stage: 'scaling-testing',
     assignedTo: 'person-2',
     cpiTestingDate: '2025-02-14',
@@ -103,13 +102,13 @@ export const initialExperiments = [
   },
   {
     id: 'exp-4',
-    formatId: 'format-2',
+    formatId: 'format-7',
     showId: 'show-3',
     stage: 'cpi-testing',
     assignedTo: 'person-3',
     cpiTestingDate: '2025-02-18',
     cpiValue: null,
-    notes: 'Testing sponsored segment for Sci-Fi audience',
+    notes: 'Testing Brand: Fantasy for Sci-Fi audience',
     createdAt: '2025-02-12'
   },
   {
@@ -125,7 +124,7 @@ export const initialExperiments = [
   },
   {
     id: 'exp-6',
-    formatId: 'format-5',
+    formatId: 'format-23',
     showId: 'show-5',
     stage: 'succeeded',
     assignedTo: 'person-4',
@@ -133,29 +132,29 @@ export const initialExperiments = [
     scalingDate: '2025-02-12',
     cpiValue: 1.45,
     scalingCpiValue: 1.52,
-    notes: 'Excellent performance, fully scaled',
+    notes: 'Short Promos excellent performance, fully scaled',
     createdAt: '2025-02-03'
   },
   {
     id: 'exp-7',
-    formatId: 'format-4',
-    showId: 'show-1',
+    formatId: 'format-9',
+    showId: 'show-2',
     stage: 'pending',
     assignedTo: 'person-5',
     cpiTestingDate: null,
     cpiValue: null,
-    notes: 'Waiting for creative assets',
+    notes: 'Waiting for UGC: Experience creative assets',
     createdAt: '2025-02-13'
   },
   {
     id: 'exp-8',
-    formatId: 'format-2',
+    formatId: 'format-25',
     showId: 'show-5',
     stage: 'cpi-testing',
     assignedTo: 'person-3',
     cpiTestingDate: '2025-02-16',
     cpiValue: null,
-    notes: 'Testing comedy integration',
+    notes: 'Testing Social UGC for comedy audience',
     createdAt: '2025-02-11'
   }
 ];

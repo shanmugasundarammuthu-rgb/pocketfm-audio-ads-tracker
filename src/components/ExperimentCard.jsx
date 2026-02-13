@@ -12,10 +12,13 @@ export function ExperimentCard({ experiment, onEdit }) {
       className={`bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow cursor-pointer ${stage.borderColor}`}
       onClick={() => onEdit?.(experiment)}
     >
-      {/* Header: Format x Show */}
+      {/* Header: Theme + Audio Format x Show */}
       <div className="mb-3">
+        <div className="inline-block px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded mb-2">
+          {format.theme}
+        </div>
         <h4 className="font-semibold text-gray-900">{format.name}</h4>
-        <p className="text-sm text-gray-600">× {show.name}</p>
+        <p className="text-sm text-gray-600 mt-1">× {show.name}</p>
         <p className="text-xs text-gray-400">{show.genre} • {show.audience}</p>
       </div>
       
